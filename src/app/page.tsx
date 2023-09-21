@@ -5,6 +5,9 @@ import Link from 'next/link'
 import  sections  from '@/div/enum.json'
 import Presentations from '@/components/presentation';
 import Navbar from '@/components/Navbar';
+import MenuChoices from '@/components/menu';
+import CircleAnimation from '@/components/circle';
+
 
 export default function Home() {
     // this is function that will scroll to the top of the page when the button is clicked
@@ -16,7 +19,7 @@ export default function Home() {
     };
     
     return (
-      <main className=" flex min-h-screen flex-col  justify-between p-24" 
+      <main className=" static flex min-h-screen flex-col  justify-between p-24" 
       style={{
         backgroundImage: "url('/bg.png')",
         backgroundRepeat: "no-repeat",
@@ -46,12 +49,15 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="font-mono font-bold">
+      <div className="font-mono font-bold ">
         <h1>
           JOEL JOKA's Portfolio
         </h1>
-      </div>
-      <div className="grid grid-cols-2 space-x-20">
+      <div className="lg:grid lg:grid-cols-2 ">
+        {/* <Presentations /> */}
+        <MenuChoices />
+        <p>toto</p>
+        {/* <Presentations />
         <Presentations />
         <Presentations />
         <Presentations />
@@ -62,10 +68,10 @@ export default function Home() {
         <Presentations />
         <Presentations />
         <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
+        <Presentations /> */}
+        </div>
+
+        <CircleAnimation  />
       </div>
      
     </main>
