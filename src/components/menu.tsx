@@ -13,12 +13,12 @@ export default function MenuChoices() {
         <>
         <div className="space-y-5">
             {
-                choices.map((choice,index) => {
+                choices.map((choice,i) => {
                 
                return (
                  <div className=" rounded-lg border-b bg-white/30 bg-gradient-to-b from-zinc-200 pb-6 pt-8   backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit ">
-                    <h1> {choice.title} </h1>
-                    <p> {choice.content}</p>
+                    <h1 key={i}> {choice.title} </h1>
+                    <p key={i}> {choice.content}</p>
                 </div>)
             })}
         </div>

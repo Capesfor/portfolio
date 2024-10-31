@@ -1,12 +1,11 @@
 'use client';
 
 import Image from 'next/image'
-import Link from 'next/link'
-import  sections  from '@/div/enum.json'
-import Presentations from '@/components/presentation';
 import Navbar from '@/components/Navbar';
 import MenuChoices from '@/components/menu';
 import CircleAnimation from '@/components/circle';
+import { useEffect,useState } from 'react';
+import CvPreview from '@/components/cv-preview';
 
 
 export default function Home() {
@@ -17,11 +16,36 @@ export default function Home() {
         behavior: 'smooth',
       });
     };
+      const [windowWidth, setWindowWidth] = useState(0);
+      const [showDiv, setShowDiv] = useState(false);
+
+      useEffect(() => {
+        // Function to update the window width state
+        const handleResize = () => {
+          setWindowWidth(window.innerWidth);
+        };
+    
+        // Attach the event listener for window resize
+        window.addEventListener('resize', handleResize);
+    
+        // Initial window width
+        setWindowWidth(window.innerWidth);
+    
+        // Clean up the event listener when the component unmounts
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+    
+      useEffect(() => {
+        // Set the showDiv state based on the window width
+        setShowDiv(windowWidth < 768); // Change 768 to your desired threshold
+      }, [windowWidth]);
     
     return (
       <main className=" static flex min-h-screen flex-col  justify-between p-24" 
       style={{
-        backgroundImage: "url('/bg.png')",
+        backgroundColor: "black",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -51,29 +75,19 @@ export default function Home() {
 
       <div className="font-mono font-bold ">
         <h1>
-          JOEL JOKA's Portfolio
+          JOEL JOKA's Portfolio <br/><br/>
         </h1>
       <div className="lg:grid lg:grid-cols-2 ">
-        {/* <Presentations /> */}
         <MenuChoices />
-        <p>toto</p>
-        {/* <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations />
-        <Presentations /> */}
+        <div className='invisible'>
+        <CvPreview/>
         </div>
-
-        <CircleAnimation  />
+        </div>
+        <CircleAnimation /> 
       </div>
      
     </main>
   )
 }
+
+
