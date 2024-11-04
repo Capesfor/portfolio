@@ -61,14 +61,14 @@ export default function Home() {
             rel="noopener noreferrer"
             >
             By Joel Joka
-            <Image
+            {/* <Image
               src="/vercel.svg"
               alt="Vercel Logo"
               className="dark:invert"
               width={100}
               height={24}
               priority
-              />
+              /> */}
           </a>
         </div>
       </div>
@@ -77,14 +77,12 @@ export default function Home() {
         <h1>
           JOEL JOKA's Portfolio <br/><br/>
         </h1>
-      <div className="lg:grid lg:grid-cols-2 ">
+      <div className="transition-transform duration-1000 transform lg:grid lg:grid-cols-2 lg:scale-105 space-x-9  ">
         <MenuChoices />
-        <div className='invisible'>
         <CvPreview/>
         </div>
-        </div>
-        <CircleAnimation /> 
       </div>
+        <CircleAnimation /> 
      
     </main>
   )
