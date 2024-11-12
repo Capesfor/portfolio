@@ -1,9 +1,9 @@
 
 
-export default function HeaderDescription() {
+export default function HeaderDescription({description} : {description: string}) {
     return (
-        <div className='text-black text-center'>
-            header Description
+        <div className='text-black font-thin text-xs text-center mb-4'>
+            {description}
         </div>
     )
 }   

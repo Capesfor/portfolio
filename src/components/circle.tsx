@@ -1,8 +1,5 @@
-import { useState } from "react"
-import  sections  from '@/div/enum.json'
 
-export default function CircleAnimation() {
-
+export default function CircleAnimation({toPDF} : {toPDF: any}) {
 
    return (
    <div>
